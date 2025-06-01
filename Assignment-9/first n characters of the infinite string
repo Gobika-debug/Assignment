@@ -1,0 +1,37 @@
+public class RepeatedStringA {
+
+    public static long countAInRepeatedString(String s, long n) {
+        long countInOne = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'a') {
+                countInOne++;
+            }
+        }
+
+        long fullRepeats = n / s.length();
+        long remainder = n % s.length();
+
+        long totalCount = fullRepeats * countInOne;
+
+        for (int i = 0; i < remainder; i++) {
+            if (s.charAt(i) == 'a') {
+                totalCount++;
+            }
+        }
+
+        return totalCount;
+    }
+
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+
+        System.out.print("Enter the string s: ");
+        String s = sc.nextLine();
+
+        System.out.print("Enter the number n: ");
+        long n = sc.nextLong();
+
+        long result = countAInRepeatedString(s, n);
+        System.out.println("Output: " + result);
+    }
+}
