@@ -1,0 +1,18 @@
+public class CharacterCounter {
+    public static int countChar(String str, char ch) {
+        return countCharHelper(str, ch, 0, 0);
+    }
+
+    private static int countCharHelper(String str, char ch, int index, int count) {
+        if (index == str.length())
+            return count;
+        return countCharHelper(str, ch, index + 1, count + (str.charAt(index) == ch ? 1 : 0));
+    }
+
+    public static void main(String[] args) {
+        String str = sc.nextLine();
+        char ch = sc.next().charAt(0);
+        int result = countChar(str, ch);
+        System.out.println("Output: " + result);
+    }
+}
