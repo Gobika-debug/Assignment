@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String sentence = sc.nextLine();
+        String wordToSearch = sc.nextLine();
+        sentence = sentence.replaceAll("[^a-zA-Z ]", "");
+        String[] words = sentence.split("\\s+");
+        int count = 0;
+        for (String word : words) {
+            if (word.equals(wordToSearch)) {
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
