@@ -1,0 +1,19 @@
+import java.util.*;
+public class PowerCalculator {
+    public static int power(int base, int exponent) {
+        if (exponent == 0)
+            return 1;
+        int halfPower = power(base, exponent / 2);
+        if (exponent % 2 == 0)
+            return halfPower * halfPower;
+        else
+            return base * halfPower * halfPower;
+    }
+
+    public static void main(String[] args) {
+        int base = sc.nextInt();
+        int exponent = sc.nextInt();
+        int result = power(base, exponent);
+        System.out.println("Output: " + result);
+    }
+}
