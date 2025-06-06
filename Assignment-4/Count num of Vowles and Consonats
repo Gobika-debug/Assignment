@@ -1,0 +1,26 @@
+import java.util.*;
+public class Main
+{
+	static void count_v_c(String in){
+	    int v=0,c=0;
+	    in = in.toLowerCase();
+	    for(int i = 0; i<in.length();i++){
+	        char ch = in.charAt(i);
+	        if(ch>='a' && ch<='z'){
+	            if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'){
+	                v++;
+	            }
+	            else{
+	                c++;
+	            }
+	        }
+	    }
+	    System.out.println("Number of vowels: "+v);
+	    System.out.println("Number of consonants: "+c);
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		count_v_c(str);
+	}
+}
