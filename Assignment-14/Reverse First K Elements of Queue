@@ -1,0 +1,45 @@
+import java.util.*;
+
+public class ReverseKQueue {
+    public static Queue<Integer> reverseFirstK(Queue<Integer> queue, int k) {
+        if (k < 0 || k > queue.size()) {
+            System.out.println("Invalid value of k. It should be between 0 and " + queue.size());
+            return queue;
+        }
+
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < k; i++) {
+            stack.push(queue.remove());
+        }
+        while (!stack.isEmpty()) {
+            queue.add(stack.pop());
+        }
+        int remaining = queue.size() - k;
+        for (int i = 0; i < remaining; i++) {
+            queue.add(queue.remove());
+        }
+
+        return queue;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Queue<Integer> queue = new LinkedList<>();
+        System.out.print("Enter number of elements in the queue: ");
+        int n = sc.nextInt();
+        System.out.println("Enter " + n + " integers:");
+        for (int i = 0; i < n; i++) {
+            queue.add(sc.nextInt());
+        }
+
+        System.out.print("Enter value of k: ");
+        int k = sc.nextInt();
+
+        Queue<Integer> result = reverseFirstK(queue, k);
+        System.out.print("Modified Queue: ");
+        for (int val : result) {
+            System.out.print(val + " ");
+        }
+
+    }
+}
