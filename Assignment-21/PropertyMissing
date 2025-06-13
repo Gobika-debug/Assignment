@@ -1,0 +1,8 @@
+class DynamicPropertyHandler {
+    def propertyMissing(String name) {
+        return "undefined"
+    }
+}
+
+def obj = new DynamicPropertyHandler()
+println obj.someUndefinedProperty  // Output: undefined
